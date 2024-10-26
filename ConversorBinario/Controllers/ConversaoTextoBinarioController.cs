@@ -5,7 +5,7 @@ namespace ConversorBinario.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class ConversaoController : ControllerBase
+public class ConversaoTextoBinarioController : ControllerBase
 {
     [HttpGet]
     public IActionResult TextoParaBinario(string texto)
@@ -14,4 +14,6 @@ public class ConversaoController : ControllerBase
         var resultado = ctb.ConverterTextoBinario(texto);
         return Ok(resultado);
     }
+
+   
 }
