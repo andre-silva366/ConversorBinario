@@ -1,0 +1,6 @@
+@ConversorBinario_HostAddress = http://localhost:5157
+
+GET {{ConversorBinario_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
