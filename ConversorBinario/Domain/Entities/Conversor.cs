@@ -2,13 +2,18 @@
 
 namespace ConversorBinario.Domain.Entities;
 
-public class ConversaoTextoBinario
+public class Conversor
 {
     public string Texto { get; set; }
 
-    public ConversaoTextoBinario(string texto)
+    public Conversor(string texto)
     {
         Texto = texto;
+    }
+
+    public Conversor(long numero)
+    {
+        
     }
 
     public string ConverterTextoBinario(string texto)
@@ -26,5 +31,12 @@ public class ConversaoTextoBinario
             .Select(s => Convert.ToByte(s, 2))
             .ToArray();
         return Encoding.UTF8.GetString(bytes);
+    }
+
+    public string ConverterLongBinario(long numero)
+    {
+        byte[] bytes = Encoding.UTF8.GetBytes(numero.ToString());
+        string resultado = string.Join(" ", bytes.Select(b => Convert.ToString(numero,2).PadLeft(8,'0')));
+        return resultado;
     }
 }

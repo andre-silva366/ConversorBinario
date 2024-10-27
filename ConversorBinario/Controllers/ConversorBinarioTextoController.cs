@@ -6,12 +6,12 @@ namespace ConversorBinario.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ConversaoBinarioTextoController : ControllerBase
+    public class ConversorBinarioTextoController : ControllerBase
     {
         [HttpGet]
         public IActionResult BinarioParaTexto(string texto)
         {
-            ConversaoTextoBinario ctb = new ConversaoTextoBinario(texto);
+            Conversor ctb = new Conversor(texto);
             var resultado = ctb.ConverterBinarioTexto(texto);
             return Ok(resultado);
         }
