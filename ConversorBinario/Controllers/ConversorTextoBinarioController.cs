@@ -10,9 +10,16 @@ public class ConversorTextoBinarioController : ControllerBase
     [HttpGet]
     public IActionResult TextoParaBinario(string texto)
     {
-        Conversor ctb = new Conversor(texto);
-        var resultado = ctb.ConverterTextoBinario(texto);
-        return Ok(resultado);
+        try
+        {
+            var resultado = Conversor.ConverterTextoBinario(texto);
+            return Ok(resultado);
+        }
+        catch
+        {
+            return BadRequest("Não foi possível a conversão");
+        }
+        
     }
 
    

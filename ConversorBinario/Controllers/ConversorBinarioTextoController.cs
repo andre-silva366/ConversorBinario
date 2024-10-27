@@ -11,9 +11,16 @@ namespace ConversorBinario.Controllers
         [HttpGet]
         public IActionResult BinarioParaTexto(string texto)
         {
-            Conversor ctb = new Conversor(texto);
-            var resultado = ctb.ConverterBinarioTexto(texto);
-            return Ok(resultado);
+            try
+            {
+                var resultado = Conversor.ConverterBinarioTexto(texto);
+                return Ok(resultado);
+            }
+            catch
+            {
+                return BadRequest("Não foi possível a conversão");
+            }
+            
         }
     }
 }

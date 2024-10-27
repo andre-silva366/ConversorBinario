@@ -5,14 +5,14 @@ namespace ConversorBinario.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class ConversorLongBinarioController : ControllerBase
+public class ConversorTextoHexadecimalController : ControllerBase
 {
     [HttpGet]
-    public IActionResult LongParaBinario(long numero)
+    public IActionResult TextoParaHexadecimal(string texto)
     {
         try
         {
-            string resultado = Conversor.ConverterLongBinario(numero);
+            var resultado = Conversor.ConverterTextoHexadecimal(texto);
             return Ok(resultado);
         }
         catch
